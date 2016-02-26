@@ -31,7 +31,7 @@
   <p>Click on a stylist to see their clients:</p>
   <ul>
     #foreach($stylist in $stylists)
-      <li><a href="/stylists/$stylist.getId()">$stylist.getType()</a>
+      <li><a href="/stylists/$stylist.getId()">$stylist.getStylistName()</a>
       <form action="/delete/stylist/$stylist.getId()" method="post">
         <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
         <button type="submit" id="$stylist.getId()" class="btn btn-danger">Delete</button>

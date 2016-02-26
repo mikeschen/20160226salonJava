@@ -1,0 +1,8 @@
+<h1>Update $client.getName()</h1>
+
+<form action="/update/client/$stylist.getId()" method="post">
+  <input id="clientId" name="clientId" type="hidden" value="$client.getId()">
+  <label for="clientName">Update Client Name</label>
+<input id="clientName" name="clientName" type="text">
+  <button type="submit" id="$client.getId()" class="btn btn-warning">Update</button>
+</form>
