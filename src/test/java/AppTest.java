@@ -26,28 +26,5 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("Restaurant Finder");
+    assertThat(pageSource()).contains("Stylist");
   }
-
-  @Test
-  public void categoryIsCreatedTest() {
-  goTo("http://localhost:4567/");
-  fill("#type").with("American");
-  submit(".btn-success");
-  assertThat(pageSource()).contains("American");
-  }
-
-  @Test
-  public void allTasksDisplayDescriptionOnCategoryPage() {
-    Cuisine myCuisine = new Cuisine("American");
-    myCuisine.save();
-    Restaurant firstRestaurant = new Restaurant("Killer Burger", myCuisine.getId());
-    firstRestaurant.save();
-    Restaurant secondRestaurant = new Restaurant("Los Pollos", myCuisine.getId());
-    secondRestaurant.save();
-    String cuisinePath = String.format("http://localhost:4567/cuisines/%d", myCuisine.getId());
-    goTo(cuisinePath);
-    assertThat(pageSource()).contains("Killer Burger");
-    assertThat(pageSource()).contains("Los Pollos");
-  }
-}
