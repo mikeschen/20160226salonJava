@@ -42,13 +42,30 @@ public class ClientTest {
     assertTrue(myClient.equals(savedClient));
   }
 
-  // @Test
-  // public void save_savesCuisineIdIntoDB_true() {
-  //   Cuisine myCuisine = new Cuisine("American");
-  //   myCuisine.save();
-  //   Client myClient = new Client("Killer Burger", myCuisine.getId());
-  //   myClient.save();
-  //   Client savedClient = Client.find(myClient.getId());
-  //   assertEquals(savedClient.getCuisineId(), myCuisine.getId());
-  // }
+  @Test
+  public void save_savesStylistIdIntoDB_true() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    Client myClient = new Client("Jill", myStylist.getId());
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertEquals(savedClient.getStylistId(), myStylist.getId());
+  }
+
+  @Test
+  public void delete_deletesStylistFromDB_true() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    assertTrue(Stylist.all().contains(myStylist));
+    myStylist.delete(myStylist.getId());
+    assertFalse(Stylist.all().contains(myStylist));
+  }
+
+  @Test
+  public void update_updateStylistFromDB_true() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    myStylist.update("Lloyd");
+    assertEquals(myStylist.getStylistName(),"Lloyd");
+  }
 }

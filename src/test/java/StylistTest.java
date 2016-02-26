@@ -13,7 +13,7 @@ public class StylistTest {
   	assertEquals(Stylist.all().size(), 0);
   }
 
-    @Test
+  @Test
   public void save_savesIntoDatabase_true() {
     Stylist myStylist = new Stylist("Floyd");
     myStylist.save();
@@ -28,4 +28,36 @@ public class StylistTest {
     assertTrue(myStylist.equals(savedStylist));
   }
 
+  @Test
+  public void getClients_retrievesAllClientsFromDatabase_clientlist() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    Client firstClient = new Client("Jill", myStylist.getId());
+    firstClient.save();
+    Client secondClient = new Client("John", myStylist.getId());
+    secondClient.save();
+    Client[] Clients = new Client[] { firstClient, secondClient };
+    assertTrue(myStylist.getClients().containsAll(Arrays.asList(Clients)));
+  }
+
+	@Test
+  public void delete_deletesClientFromDB_true() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    Client myClient = new Client("Jill", myStylist.getId());
+    myClient.save();
+    assertTrue(Client.all().contains(myClient));
+    myClient.delete(myClient.getId());
+    assertFalse(Client.all().contains(myClient));
+  }
+
+  @Test
+  public void update_updateClientFromDB_true() {
+    Stylist myStylist = new Stylist("Floyd");
+    myStylist.save();
+    Client myClient = new Client("Jill", myStylist.getId());
+    myClient.save();
+    myClient.update("Jane");
+    assertEquals(myClient.getName(),"Jane");
+  }
 }

@@ -1,0 +1,46 @@
+<h1>Hair Salon Co-op</h1>
+<img src="/img/hairmain.gif" alt="mainImage">
+<p>Enter Name of New Stylist:</p>
+
+<form action="/" method="post">
+  <label for="stylistname">Name</label>
+  <input id="stylistname" name="stylistname" type="text">
+  <button type="submit" class="btn btn-info">Add Stylist</button>
+</form>
+
+<p>Add Client to Stylist</p>
+
+<form action="/stylists" method="post">
+  <div class="form-group">
+    <label for="stylistId">Select a Stylist</label>
+      <select id='stylistId' name='stylistId' type='text'>
+        #foreach($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getStylistName()</option>
+        #end
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="clientname">Client Name</label>
+    <input id="clientname" name="clientname" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Client</button>
+</form>
+
+#if($stylists)
+  <p>Click on a stylist to see their clients:</p>
+  <ul>
+    #foreach($stylist in $stylists)
+      <li><a href="/stylists/$stylist.getId()">$stylist.getType()</a>
+      <form action="/delete/stylist/$stylist.getId()" method="post">
+        <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+        <button type="submit" id="$stylist.getId()" class="btn btn-danger">Delete</button>
+      </form></li>
+    #end
+  </ul>
+#else
+  <p>There are no stylists yet!</p>
+#end
+<div class ="copyright">
+  &#169 Michael Schennum 2016
+</div>

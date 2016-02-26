@@ -1,7 +1,7 @@
 body {
   font-size: medium;
-  color: #30122d;
-  background-image: url("/img/restaurant.png");
+  color: #53bf6b;
+  background-image: url("/img/background.png");
 }
 
 a:link {
@@ -14,4 +14,8 @@ a:visited {
 
 a:hover {
     color: #694859;
+}
+
+.copyright {
+	font-size: 12px;
 }

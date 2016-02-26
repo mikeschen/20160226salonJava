@@ -1,1 +1,15 @@
+<h1>$stylist.getStylistName() Clients</h1>
 
+#foreach($client in $stylis.getClients())
+  <h3>$client.getName()</h3>
+  <form action="/update/client/$stylist
+.getId()" method="get">
+    <input id="clientId" name="clientId" type="hidden" value="$client.getId()">
+  <button type="submit" id="$client.getId()" class="btn btn-warning">Update</button>
+  </form>
+  <form action="/delete/client/$client.getId()" method="post">
+    <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+    <button type="submit" id="$client.getId()" class="btn btn-danger">Delete</button>
+  </form>
+#end
+<a href="/">Go Back To Main</a>

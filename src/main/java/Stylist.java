@@ -67,6 +67,24 @@ public class Stylist {
   }
 
   //UPDATE
+  public void update(String newName) {
+  this.stylistname = newName;
+  String sql = "UPDATE stylists SET stylistname = :stylistname WHERE stylist_id = :id";
+  try(Connection con = DB.sql2o.open()) {
+    con.createQuery(sql)
+      .addParameter("stylistname", newName)
+      .addParameter("id", stylist_id)
+      .executeUpdate();
+    }
+  }
   
   //DELETE
+	  public static void delete(int id) {
+	  String sql = "DELETE FROM stylists WHERE stylist_id= :id;";
+	  try(Connection con = DB.sql2o.open()) {
+	    con.createQuery(sql)
+	    .addParameter("id", id)
+	    .executeUpdate();
+	  }
+  }
 }
