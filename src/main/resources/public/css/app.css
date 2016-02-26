@@ -5,15 +5,15 @@ body {
 }
 
 a:link {
-    color: #923c6c;
+    color: #a2ea2e;
 }
 
 a:visited {
-    color: #694859;
+    color: #b1eb1e;
 }
 
 a:hover {
-    color: #694859;
+    color: #7cfc00;
 }
 
 .copyright {
