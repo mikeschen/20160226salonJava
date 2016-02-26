@@ -2,7 +2,7 @@
 
 ##### Epicodus exercise using Java and Postgres, 02.26.2016
 
-##### Author Names
+##### Michael Schennum
 
 ## Description
 Hair Salon Organizer allows users to enter in stylists and their clients. Users can delete stylists and clients, as well as update their names.
