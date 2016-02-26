@@ -1,0 +1,14 @@
+<h1>$cuisine.getType() Restaurants</h1>
+
+#foreach($restaurant in $cuisine.getRestaurants())
+  <h3>$restaurant.getName()</h3>
+  <form action="/update/restaurant/$cuisine.getId()" method="get">
+    <input id="restaurantId" name="restaurantId" type="hidden" value="$restaurant.getId()">
+  <button type="submit" id="$restaurant.getId()" class="btn btn-warning">Update</button>
+  </form>
+  <form action="/delete/restaurant/$restaurant.getId()" method="post">
+    <input id="cuisineId" name="cuisineId" type="hidden" value="$cuisine.getId()">
+    <button type="submit" id="$restaurant.getId()" class="btn btn-danger">Delete</button>
+  </form>
+#end
+<a href="/">Go Back To Main</a>

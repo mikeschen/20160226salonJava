@@ -1,0 +1,17 @@
+body {
+  font-size: medium;
+  color: #30122d;
+  background-image: url("/img/restaurant.png");
+}
+
+a:link {
+    color: #923c6c;
+}
+
+a:visited {
+    color: #694859;
+}
+
+a:hover {
+    color: #694859;
+}
