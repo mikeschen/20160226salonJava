@@ -32,9 +32,13 @@
   <ul>
     #foreach($stylist in $stylists)
       <li><a href="/stylists/$stylist.getId()">$stylist.getStylistName()</a>
+      <form action="/update/stylist/$stylist.getId()" method="get">
+      <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
+      <button type="submit" id="$stylist.getId()" class="btn btn-warning">Update Name</button>
+      </form>
       <form action="/delete/stylist/$stylist.getId()" method="post">
         <input id="stylistId" name="stylistId" type="hidden" value="$stylist.getId()">
-        <button type="submit" id="$stylist.getId()" class="btn btn-danger">Delete</button>
+        <button type="submit" id="$stylist.getId()" class="btn btn-danger">Delete Stylist</button>
       </form></li>
     #end
   </ul>

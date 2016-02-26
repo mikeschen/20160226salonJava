@@ -89,5 +89,26 @@ public class App {
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    get("/update/stylist/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int stylistId = Integer.parseInt(request.queryParams("stylistId"));
+      Stylist currentStylist = Stylist.find(stylistId);
+      model.put("stylist", currentStylist);
+      model.put("template", "templates/stylist-update.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/update/stylist/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int stylistId = Integer.parseInt(request.queryParams("stylistId"));
+      String stylistName = request.queryParams("stylistName");
+      Stylist myStylist = Stylist.find(stylistId);
+      myStylist.update(stylistName);
+      model.put("stylists", Stylist.all());
+      // model.put("clients", Client.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

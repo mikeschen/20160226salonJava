@@ -1,19 +1,15 @@
 # Hair Salon Organizer
 
-##### Epicodus exercise using Java and Postgres, 01.21.2016
+##### Epicodus exercise using Java and Postgres, 02.26.2016
 
 ##### Author Names
 
 ## Description
-Add a description here
+Hair Salon Organizer allows users to enter in stylists and their clients. Users can delete stylists and clients, as well as update their names.
 
 ## Setup
 
 Clone this repository:
-```
-$ cd ~/Desktop
-$ git clone https://github.com/LINK_TO_YOUR_REPO
-$ cd best-restaurants
 ```
 
 Open terminal and run Postgres:
@@ -21,11 +17,11 @@ Open terminal and run Postgres:
 $ postgres
 ```
 
-Open a new tab in terminal and create the `best-restaurants` database:
+Open a new tab in terminal and create the `hair_salon` database:
 ```
 $ psql
-$ CREATE DATABASE best_restaurants;
-$ psql best_restaurants < best_restaurants.sql
+$ CREATE DATABASE hair_salon;
+$ psql hair_salon < hair_salon.sql
 ```
 
 Navigate back to the directory where this repository has been cloned and run gradle:
@@ -33,9 +29,13 @@ Navigate back to the directory where this repository has been cloned and run gra
 $ gradle run
 ```
 
+## Technologies Used
+
+Java, Spark, JUnit, FluentLenium, Velocity, PostgreSQL, Bootstrap
+
 ## Legal
 
-Copyright (c) 2015 Author names go here
+Copyright (c) 2015 Michael Schennum
 
 This software is licensed under the MIT license.
 
