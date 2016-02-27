@@ -35,7 +35,7 @@ Java, Spark, JUnit, FluentLenium, Velocity, PostgreSQL, Bootstrap
 
 ## Legal
 
-Copyright (c) 2015 Michael Schennum
+Copyright (c) 2016 Michael Schennum
 
 This software is licensed under the MIT license.
 

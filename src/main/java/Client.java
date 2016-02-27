@@ -57,10 +57,10 @@ public class Client {
 
 	//READ
 	public static List<Client> all() {
-  		String sql = "SELECT id, clientname, stylistid FROM clients";
-  		try(Connection con = DB.sql2o.open()) {
-    		return con.createQuery(sql).executeAndFetch(Client.class);
-   		}	
+  	String sql = "SELECT id, clientname, stylistid FROM clients";
+  	try(Connection con = DB.sql2o.open()) {
+    	return con.createQuery(sql).executeAndFetch(Client.class);
+   	}	
 	}
 	//UPDATE
   public void update(String newClientName) {
@@ -78,9 +78,9 @@ public class Client {
   public static void delete(int id) {
     String sql = "DELETE FROM clients WHERE id= :id;";
     try(Connection con = DB.sql2o.open()) {
-        con.createQuery(sql)
-          .addParameter("id", id)
-          .executeUpdate();
+      con.createQuery(sql)
+        .addParameter("id", id)
+        .executeUpdate();
     }
   }
 }
