@@ -3,6 +3,6 @@
 <form action="/update/client/$stylist.getId()" method="post">
   <input id="clientId" name="clientId" type="hidden" value="$client.getId()">
   <label for="clientName">Update Client Name</label>
-<input id="$client.getName" name="clientName" type="text">
+<input id="clientName" name="clientName" type="text" value="$client.getName()>
   <button type="submit" id="$client.getId()" class="btn btn-warning">Update</button>
 </form>
